@@ -1,0 +1,100 @@
+
+.main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0.1rem;
+
+  .hdr {
+    padding: 2rem 5rem;
+    color: magenta;
+    font-size: 3.5rem;
+    font-weight: 100;
+    letter-spacing: 0.5rem;
+  }
+
+  .cardgrp {
+    padding: 2rem 10rem;
+
+    .cards {
+      padding: 0rem;
+
+      .cardelm {
+        width: 33.3%;
+        min-height: 10rem;
+        padding: 1rem;
+
+        .card {
+          height: 100%;
+          padding: 3rem;
+          /* background-color:; */
+
+          .card-img-top {
+            width: 100%;
+            height: 50%;
+            aspect-ratio: 2/1.5;
+          }
+
+          .card-body {
+            padding: 1rem;
+
+            .card-title {
+              padding: 1rem 0;
+              margin: 0;
+              color: var(--theme);
+              font-size: 1.8rem;
+              font-weight: bold;
+              text-transform: capitalize;
+            }
+            .card-text {
+              padding: 1rem 0;
+              margin: 0;
+              color: var(--para);
+              font-size: 1.2rem;
+              font-weight: 300;
+              text-transform: capitalize;
+            }
+            .crdvl {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              flex-flow: row wrap;
+              padding: 0.8rem 0;
+
+              .crdcst {
+                /* background-color: coral; */
+
+                .prc {
+                  color: crimson;
+                  font-size: 1.6rem;
+                  font-weight: bold;
+                }
+                .unt {
+                  color: cornflowerblue;
+                  font-size: 1.2rem;
+                  font-weight: 500;
+                }
+              }
+              .crdrt {
+                .rt {
+                  color: lightseagreen;
+                  font-size: 1.3rem;
+                  font-weight: 600;
+                }
+              }
+            }
+            .crdact {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
