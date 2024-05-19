@@ -1,0 +1,155 @@
+
+.cartcnt {
+    .crthdr {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2.5rem;
+        font-size: 2.5rem;
+        font-weight: 100;
+        letter-spacing: 0.4rem;
+    }
+    .crtdtl {
+        .crttbl {
+            .crt {
+                thead {
+                    tr {
+                        th {
+                            background-color: darkolivegreen;
+                            color: lightgreen;
+                            text-align: center;
+                        }
+                    }
+                }
+                tbody {
+                    tr {
+                        td {
+                            padding: 2.5rem;
+
+                            .itmdtl {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                flex-flow: row wrap;
+
+                                .itmimg {
+                                    padding: 0.5rem;
+
+                                    img {
+                                        width: 5rem;
+                                        aspect-ratio: 4/5;
+                                    }
+                                }
+                                .itmcntnt {
+                                    /* height: 100%; */
+                                    padding: 0.5rem;
+                                    
+                                    .itmnm {
+                                        padding: 0.2rem;
+                                        color: mediumslateblue;
+                                        font-size: 1.2rem;
+                                        font-weight: bold;
+                                    }
+                                    .itminfo {
+                                        padding: 0.1rem;
+                                        color: cadetblue;
+                                        font-size: 1rem;
+                                    }
+                                    .itmratng {
+                                        .lbl {
+                                            color: #06b331;
+                                            font-weight: 600;
+                                        }
+                                        .vlu {
+                                            color: hotpink;
+                                            font-weight: 600;
+                                        }
+                                    }
+                                }
+                            }
+
+                            a {
+                                .edtbtn {
+                                    color: #0e91c5;
+                                    font-size: 2rem;
+                                    border: none;
+                                }
+                            }
+                            button {
+                                background-color: transparent;
+                                border: none;
+
+                                .rmvbtn {
+                                    color: #ff5e2d;
+                                    font-size: 2rem;
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .crtinfo {
+            .crtsumry {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-color: #eff2f5;
+                padding: 2rem;
+                /* border: 0.2rem solid #eff2f5; */
+                
+                .frmgrp {
+                    label {
+                        width: 25rem;
+                        padding: 1rem;
+                        color: cornflowerblue;
+                        font-size: 2rem;
+                        font-weight: 600;
+                    }
+                    input {
+                        background-color: #e6e9ee;
+                        padding: 1rem;
+                        color: darkslateblue;
+                        font-size: 1.8rem;
+                        text-align: center;
+                        border: none;
+                        outline: none;
+                    }
+                }
+            }
+            .crtbtn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-flow: row wrap;
+                background-color: #e6e9ee;
+                padding: 2rem;
+
+                .pybtn {
+                    background-color: transparent;
+                    margin: 1rem;
+                    border: none;
+
+                    .payr {
+                        color: teal;
+                        font-size: 2.5rem;
+                        border: none;
+                    }
+                }
+                .dltbtn {
+                    background-color: transparent;
+                    border: none;
+                    margin: 1rem;
+
+                    .dltr {
+                        color: #c00232;
+                        font-size: 2.5rem;
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+}

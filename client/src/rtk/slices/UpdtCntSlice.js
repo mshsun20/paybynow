@@ -1,12 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initState = {value:1}
+const initState = {value:0}
 
-const counterSlice = createSlice({
-    name: 'counter',
+const updtcntSlice = createSlice({
+    name: 'updtcntr',
     initialState:initState,
     reducers: {
-        cntrInc: (state, action) => {
+        loadCnt: (state, action) => {
+            state.value = parseInt(action.payload)
+        },
+        cntrInc: (state) => {
             state.value += 1
         },
         cntrDec: (state) => {
@@ -16,12 +19,9 @@ const counterSlice = createSlice({
             else {
                 state.value = 1
             }
-        },
-        cntClr: (state) => {
-            state.value = 1
         }
     }
 })
 
-export const {cntrInc, cntrDec, cntClr} = counterSlice.actions
-export default counterSlice.reducer
+export const {loadCnt, cntrInc, cntrDec} = updtcntSlice.actions
+export default updtcntSlice.reducer

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import Cardsdata from '../data/CardData'
-// import { loadStripe } from '@stripe/stripe-js'
 
 const Items = () => {
     const [itm, setItm] = useState(Cardsdata)

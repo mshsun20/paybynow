@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Cardsdata from '../data/CardData'
 import { useSelector, useDispatch } from 'react-redux'
-import { cntrInc, cntrDec, cntClr } from '../rtk/slices/CounterSlice'
-import { addItm } from '../rtk/slices/CartSlice'
+import { loadCnt, cntrInc, cntrDec } from '../rtk/slices/UpdtCntSlice'
+import { edtItm } from '../rtk/slices/CartSlice'
 
-const Itemdtl = () => {
+const Updtitm = () => {
     const {itmnm} = useParams()
     const [itm, setItm] = useState()
-    const itmState = useSelector((state) => state.prstreduc.counters.value)
+    const itmState = useSelector((state) => state.prstreduc.updtcnts.value)
     const cartState = useSelector((state) => state.prstreduc.carts)
     const dispatch = useDispatch()
-    const navig = useNavigate()
 
     const getDta = () => {
         Cardsdata.forEach((elm, i) => {
@@ -23,19 +22,20 @@ const Itemdtl = () => {
     const getCrt = () => {
         for (let i=0; i<cartState.length; i++) {
             if (String(itmnm) === String(cartState[i].item.dish)) {
-                navig(`/edtdet/${cartState[i].item&&cartState[i].item.dish}`)
+                // setCrt(cartState[i].quantity)
+                dispatch(loadCnt(cartState[i].quantity))
             }
         }
     }
     useEffect(() => {
         getCrt()
-        dispatch(cntClr())
         getDta()
+        // console.log(itmState)
     }, [])
 
-    const addCrt = async (e) => {
+    const edtCrt = async (e) => {
         e.preventDefault()
-        dispatch(addItm({item:itm, quantity:itmState, totalCost:(parseInt(itm.price)*parseInt(itmState))}))
+        dispatch(edtItm({item:itm, quantity:itmState, totalCost:(parseInt(itm.price)*parseInt(itmState))}))
     }
 
   return (
@@ -59,11 +59,11 @@ const Itemdtl = () => {
                                             </div>
                                             <div className="crdact">
                                                 <button onClick={() => dispatch(cntrDec())}>-</button>
-                                                <input type="text" name="" id="" value={itmState} readOnly />
+                                                <input type="text" name="" id="" value={itmState&&itmState} readOnly />
                                                 <button onClick={() => dispatch(cntrInc())}>+</button>
                                             </div>
                                             <div className="crdbtn">
-                                              <button onClick={addCrt}>Add to Cart</button>
+                                              <button onClick={edtCrt}>Update Cart</button>
                                             </div>
                                         </div>
                                     </div>
@@ -78,4 +78,4 @@ const Itemdtl = () => {
   )
 }
 
-export default Itemdtl
+export default Updtitm

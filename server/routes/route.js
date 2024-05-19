@@ -8,33 +8,20 @@ router.route('/').get((req, res) => {
 })
 
 router.route('/api/create-checkout-session').post(async (req, res) => {
-    let lineItems=[]
-    const {product} = req.body
-    // console.log(product)
+    const {products} = req.body
+    // console.log(products)
 
-    // const lineItems = products.map((product)=>({
-    //     price_data:{
-    //         currency:"inr",
-    //         product_data:{
-    //             name:product.dish,
-    //             images:[product.imgdata]
-    //         },
-    //         unit_amount:product.price * 100,
-    //     },
-    //     quantity:product.qnty
-    // }));
-
-    lineItems.push({
-        price_data:{
+    const lineItems = products.map((product)=>({
+        price_data: {
             currency:"inr",
             product_data:{
-                name:product.dish,
-                images:[product.imgdata]
+                name:product.item.dish,
+                images:[product.item.imgdata]
             },
-            unit_amount:product.price * 100,
+            unit_amount:product.item.price * 100,
         },
-        quantity:(parseInt(product.qnty)+1)
-    })
+        quantity:product.quantity
+    }))
 
     const session = await stripe.checkout.sessions.create({
         payment_method_types:["card"],

@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Items from '../pages/Items'
 import Itemdtl from '../pages/Itemdtl'
 import Cartdet from '../pages/Cartdet'
+import Updtitm from '../pages/Updtitm'
 import Successpg from '../pages/Successpg'
 import Cancelpg from '../pages/Cancelpg'
 
@@ -15,7 +16,8 @@ const Router = () => {
         <Routes>
             <Route path='/' element={<Items />} />
             <Route path='/itemdet/:itmnm' element={<Itemdtl />} />
-            <Route path='/cartdet/:id' element={<Cartdet />} />
+            <Route path='/cartdet' element={<Cartdet />} />
+            <Route path='/edtdet/:itmnm' element={<Updtitm />} />
             <Route path='/success' element={<Successpg />} />
             <Route path='/cancel' element={<Cancelpg />} />
         </Routes>
